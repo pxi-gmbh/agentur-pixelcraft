@@ -1076,7 +1076,7 @@ label.margin-toggle:not(.sidenote-number) {
   /* clip in supporting browsers only */
   -webkit-background-clip: text;
   /* clip in supporting browsers only */
-  background-image: url(topography.svg);
+  background-image: url(../assets/images/theme/topography.svg);
   background-attachment: fixed;
   background-size: 100%;
   background-repeat: no-repeat; }

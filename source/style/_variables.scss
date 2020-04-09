@@ -1,0 +1,66 @@
+// @todo make colors just base colors (light, dark, contrast) and compute all other values with sass-functions?
+// fix color&font-variables - use less variables and more functions
+// create sass mixins for browser-prefixes and color fallbacks
+// http://thesassway.com/intermediate/mixins-for-semi-transparent-colors
+// http://matthewshields.co.uk/experiments/provide-fallback-rgba-colours-using-sass-mixin/
+// http://alistapart.com/article/mixing-color-for-the-web-with-sass
+
+/* COLOR SCHEME: */
+$color-contrast: rgba(48,115,124,1);   // petrol
+$color-light:    rgba(255,255,255,1);  // white
+$color-muted:    rgba(204,204,204,1);  // muted grey
+$color-medium:   rgba(128,128,128,1);  // medium grey
+$color-dark:     rgba(15,15,15,1);     // muted black
+$color-ghosted:  rgba(255,255,255,.5); // transparent white
+$color-lighter:  rgba(255,255,255,.1); // transparent white 
+/*  rgba(48,115,124,1)   petrol
+ *  rgba(204,204,204,1)  muted grey #ccc
+ *  rgba(128,128,128,1)  medium grey #808080
+ * 	rgba(15,15,15,1)     muted black #050505
+ * 	rgba(250,250,250,1)  off white #fafafa
+ * 	rgba(240,240,240,.5) transparent off white
+ */
+ $color-gradient: linear-gradient(to right top, #6b4e71, #595980, #436386, #326c84, #30737c);
+ 
+
+// FONT-FAMILIES
+$font-serif: Times, 'Times New Roman', Serif;
+$font-monospace: "Courier 10 Pitch", Consolas, "Liberation Mono", Courier, monospace; // monospace stack used by github (amended by Linux-Courier font)
+$font-sans: 'Arial Black', 'Avenir Next Heavy', Gadget, 'Arial Bold', Sans-Serif;
+// ALTERNATE FONT-FAMILIES
+// SERIF, classic, readable (adapted from) http://www.cssfontstack.com/Book-Antiqua
+// 'Book Antiqua', Palatino, 'Palatino Linotype', 'Palatino LT STD', Georgia, serif; 
+// SANS-SERIF, native UI fonts
+// -apple-system, BlinkMacSystemFont, "Segoe UI", "Fira Sans", Roboto, Oxygen-Sans, Ubuntu, Cantarell, sans-serif;
+// MONOSPACE
+// Lucida Console, Andale Mono, "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "DejaVu LGC Sans Mono", Liberation Mono, Monaco, monospace;
+// SERIF, modern, light (adapted from) http://www.cssfontstack.com/Bodoni-MT
+// 'Bodoni MT', Didot, 'Didot LT STD', 'Times', 'Times New Roman', serif;
+
+// FONT-SETTINGS
+$font-size-adjust: 0.42; // use aspect ratio (hight/x-hight) of primary font in font stack to force unified x-hight
+$font-smoothing: auto; // antialiased only for white on black to eliminate sub-pixel-rendering
+$font-feature-settings: "calt" on, "liga" on, "dlig" on, "kern" on; // add special cases where necessary: e.g. table numbering in tables, swashes in calligraphic headlines
+$text-size-adjust: 100%; // prevent adjustments of font size after orientation changes in IE and iOS.
+
+// TYPOGRAPHY
+// typographic scale derived from 1 and 1.4 as base units applied to golden ratio
+// 0.865	1	1.4	1.618	2.265	2.618	3.665	4.236
+$type-scale-base: .7; //adjust universal base-unit for type size
+$type-scale-small:  $type-scale-base * 0.865;
+$type-scale-normal: $type-scale-base * 1;
+$type-scale-h4:     $type-scale-base * 1.4;
+$type-scale-h3:     $type-scale-base * 1.618;
+$type-scale-h2:     $type-scale-base * 2.265;
+$type-scale-h1:     $type-scale-base * 2.618;
+$type-scale-huge:   $type-scale-base * 3.665;
+
+$line-height: 1.45; // @todo find proper solution for molten line-height, expands with window width
+
+// FORM STYLES
+$border-radius: 0;
+$drop-shadow: 1px 1px 6px rgba(0,0,0,.35);
+
+// BREAK POINTS
+$break-wide: 1162px;
+$break-narrow: 620px;

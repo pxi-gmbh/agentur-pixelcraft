@@ -1,0 +1,80 @@
+optgroup,
+select {
+	font: inherit;
+	margin: 0;
+}
+label{
+	margin: 0;
+	position: relative;
+}
+input,
+textarea {
+	font: inherit;
+	margin: 0;
+	padding: 0.5em 1em;
+	border: 1px $color-muted solid;
+	border-radius: 0.2em;
+	max-width: 100%;
+	box-shadow: inset 0 1px 2px #DDD, 0 1px 0 #FFF;
+}
+input[type="text"] {
+	font-family: $font-serif;
+}
+input[type="radio"],
+input[type="checkbox"] {
+	width: 1em;
+	height: 1em;
+	position: relative;
+	&::before {
+		content: '';
+		width: 1em;
+		height: 1em;
+		background: $color-light;
+		border: 1px $color-contrast solid;
+		border-radius: 50%;
+		position: absolute;
+		left: 0;
+		top: 0;
+	}
+	&:checked::before {
+		background: $color-contrast;
+	}
+}
+input[type="checkbox"] {
+	&::before {
+		border-radius: 4px;
+	}
+	&:checked::before {
+		content: '✓';
+		line-height: 1;
+		color: $color-light;
+		font-family: $font-monospace;
+		font-weight: bold;
+		text-align: center;
+	}
+}
+progress[value],
+progress:not([value]) {
+	width: calc(100% - 1.5em);
+}
+form {
+	border: 1px $color-muted dotted;
+	border-radius: 4px;
+}
+	form * {
+		margin-left: 0;
+		margin-right: 0;
+	}
+	form button,
+	form [role="button"] {
+		width:100%;
+	}
+fieldset {
+	font-family: $font-sans;
+	border:none;
+}
+legend {
+	font-size: #{$type-scale-h4}em;
+	font-weight: lighter;
+}
+	

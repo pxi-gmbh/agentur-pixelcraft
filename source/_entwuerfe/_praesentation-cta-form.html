@@ -1,0 +1,69 @@
+<style>
+.form-progress:not(:first-child) {
+	display: none;
+}
+input[type="radio"]:checked ~ .form-progress,
+input[type="checkbox"]:checked ~ .form-progress {
+	display: block;
+	animation: pulse 0.5s linear 1;
+}
+#cta-form:target .form-progress {
+  display: block;
+  animation: pulse 0.5s linear 1;
+}
+@keyframes pulse {
+	0% { transform: scale(1) }
+	50% { transform: scale(1.05) }
+	100% { transform: scale(1) }
+}
+label[for="name"],
+label[for="email"],
+label[for="firma"] {
+	font-variant: small-caps; 
+}
+label[for="gdpr"],
+label[for="news"] {
+	display: block;
+	float: right;
+	font-family: $font-serif;
+	font-weight: normal;
+	width: calc(100% - 4em);
+}
+
+</style>
+
+<div class="contrast-bg-light card">
+	<form id="cta-form" class="text-left" style="border:none;" action="https://mail.pixelcraftbooks.com/sendy/subscribe" method="POST" accept-charset="utf-8">
+		<input name="progress" id="progress" type="checkbox" class="hide-visually">
+		<label for="progress" class="button" style="display:block;position:relative;">mehr zum Thema</label>
+		<div class="form-progress" style="margin-top:-3em;padding:1em;background-color:#eee;position:relative;z-index:1;min-height:8em;box-shadow: 0 3px 3px #999;">
+			<label for="email" style="display:block;width:100%; padding:0;margin:0;"><span style="display:inline-block;width:4em;margin:0;border:0;">E-Mail</span><input type="text" name="email" id="email" style="width:calc(100% - 4em);margin:0;" required /></label>
+
+			<input type="checkbox" name="gdpr" id="gdpr" required checked="checked"/> <label for="gdpr"> <i>Ich möchte Wissensbeiträge zum Thema Visualisierung & Präsentation erhalten, denn ich möchte mitwirken, Information sinnvoller und effizienter zu kommunizieren.</i></label><!-- @todo Hinweis und Link: Hier ein früherer Beitrag als Beispiel -->
+			<div class="clear" style="padding-top:0.5em;"></div>
+			<small>Wir werden Sie ausschließlich über Aktualisierungen und Informationen zum Themenkomplex Präsentation informieren. Sie können jederzeit mit einem Klick oder einer Notiz an uns die Benachrichtigungen abbestellen. Ihre Kontaktdaten behandeln wir mit höchster Sorgfalt. Siehe <a href="<!-- @path datenschutz.html -->" target="_blank">[Unsere Datenschutz&shy;erklärung]</a></small>
+
+
+		</div>
+		<div style="display:none;">
+			<label for="hp">HP</label><br/>
+			<input type="text" name="hp" id="hp"/>
+		</div>
+		<input type="hidden" name="list" value="A45H9l0gNlDR0xK3egjDYA"/>
+		<input type="hidden" name="subform" value="yes"/>
+
+		<input type="hidden" name="+praesentation" value="true"/>
+		<input type="hidden" name="-lp-arbeitsprobe" value="true"/> <!-- @todo landing pages als variable anlegen -->
+
+		<input type="hidden" name="team" value=""/>
+		<input type="hidden" name="status" value=""/>
+		<!--
+			<input type="text" name="Firma" id="Firma"/>
+			<input type="checkbox" name="+..." value="true"/>
+			"+..." sind Attribute für passgenaue Informationsangebote per E-Mail. mit "true" aktivieren
+			"-lp..." sind Marker für besuchte Landingpages, die wir in Mails an diese Person vermeiden 
+		-->
+		<div class="form-progress text-center"><input class="button contrast-bg-ghosted" style="width:100%;padding:0.5em;" type="submit" name="submit" id="submit" value="mitlesen und mitreden"/></div>
+	</form>
+</div>
+<br>

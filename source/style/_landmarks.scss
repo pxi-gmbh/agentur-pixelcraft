@@ -1,0 +1,60 @@
+/*
+ * ===== LANDMARK SECTION STYLES =====
+ * defined by roles
+ * "banner" defaults to topmost header
+ * "contentinfo" defaults to topmost footer
+ */
+/* style banner-information for a document */
+[role="banner"]{
+	// width: 100%;
+	min-height: 9em;
+	// padding-top: 3.5rem;
+	padding-bottom: 3.5rem;
+	// margin-top: -22px; /* offset navbar */
+	// background-attachment: fixed;
+	// background-position: center 0rem;
+	// background-size: 100vw;	
+	// font-size: calc(70% + 1vw);
+	// text-align: center;
+	color: $color-dark;
+	background-color: $color-light;
+	// background-image: url("topography.svg");
+}
+[role="banner"] h1 { /* clip background image to header-text inside banner*/
+	font-size: #{$type-scale-huge}em;
+	letter-spacing: -0.05em;
+	-webkit-text-fill-color: transparent; /* clip in supporting browsers only */
+	-webkit-background-clip: text; /* clip in supporting browsers only */
+	background-image: url(topography.svg);
+	background-attachment: fixed;
+	background-size: 100%;	
+	background-repeat: no-repeat;
+	// background-position: center 38px;
+}
+[role="banner"] + * {
+    position: relative;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+    // margin: 0 auto;
+    margin-top: -3.5rem;
+    margin-bottom: 3rem;
+    background-color: $color-light;
+}
+
+/* style the meta-information for a document */
+[role="contentinfo"] {
+    background: $color-dark;
+    color: $color-light;
+    margin: 0;
+}
+[role="contentinfo"] a {
+	color: $color-light;
+}
+[role="contentinfo"] [role="navigation"] a {
+    padding: 0.2em;
+    padding-left: 0.3em;
+    padding-right: 0.3em;
+    border-radius: 0.1em;
+    color: $color-contrast;
+    background-color: $color-lighter;
+}

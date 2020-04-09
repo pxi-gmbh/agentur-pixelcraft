@@ -1,0 +1,31 @@
+a {
+	color: $color-contrast;
+	text-decoration: none;
+	cursor: pointer;
+	text-decoration-skip: objects;
+	text-decoration-skip-ink: auto;
+	text-decoration-color: $color-medium;
+	transition: all 0.3s ease;
+	&:hover,
+	&:active,
+	&:focus {
+		text-decoration: underline;
+	}
+}
+main a:not(.button) {
+	text-decoration: underline;
+}
+	sup a {
+		color: $color-contrast;
+		text-decoration: none;
+		&:hover {
+			text-decoration: none;
+		}
+		&::before {
+			content: "[";
+			
+		}
+		&::after {
+		content: "]";
+		}
+	}

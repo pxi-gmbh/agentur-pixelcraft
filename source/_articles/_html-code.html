@@ -1,0 +1,36 @@
+<!-- snippets to copy & paste -->
+
+<!-- YouTube snippet: no cookies, minimal branding. Switch Video ID-comment with proper ID for use -->
+<div class="embedcontainer">
+	<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/<!-- VIDEO-ID -->?controls=1&rel=0&modestbranding=0&showinfo=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+
+<video autoplay loop muted>
+  <source src="<!-- animation-mindmap.mp4 -->" type="video/mp4">
+  <!-- <source src="movie.ogg" type="video/ogg"> -->
+  Your browser does not support the video tag.
+</video>
+
+<!-- Video nachladen -->
+<img id="video-001-img" src="<!-- @path ppt-demo.jpg -->" onClick='document.getElementById("video-001").style="display:block";document.getElementById("video-001").src="<!-- @path ppt-demo.mp4 -->";document.getElementById("video-001-img").style="display:none";document.getElementById("video-001-text").style="display:none";'>
+<div id="video-001-text" class="text-center" style="margin-top:-2.5em;" onClick='document.getElementById("video-001").style="display:block";document.getElementById("video-001").src="<!-- @path ppt-demo.mp4 -->";document.getElementById("video-001-img").style="display:none";document.getElementById("video-001-text").style="display:none";'>
+	<span class="button">Video laden (2Min, 50MB)</span>
+</div>
+<video id="video-001" style="display:none;" autoplay loop muted class="drop-shadow" alt="Animationssequenzen in PowerPoint">
+  <source src="" type="video/mp4">
+  Entschuldigung, Ihr Browser unterstützt das Video-Format nicht.
+</video>
+
+<!-- no tracking on iframes at all -->
+<div class="embedcontainer">
+	<iframe id='iframe-001' style="display:none;" frameborder="0" scrolling="no" width="560" height="315" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen ></iframe>
+	<noscript>Einbettung ist ausgeschaltet. <a href="<!-- IFRAME-URL -->">Video auf der Ursprungsseite ansehen</a>.</noscript>
+	<img id="iframe-001-img" src="<!-- BILD -->" alt="placeholder-image for iframe content" onClick='document.getElementById("iframe-001").style="display:block";document.getElementById("iframe-001").src="QUELLE";document.getElementById("iframe-001-img").style="display:none";'>
+</div>
+
+<!-- side note snippet: automatic numbering, collapses on small screens. Switch ID-comment with proper, unique ID -->
+<label for="<!-- ID -->" class="margin-toggle sidenote-number"></label><input type="checkbox" id="<!-- ID -->" class="margin-toggle"/><span class="sidenote"><!-- Text --></span>
+<!-- margin note snippet: no numbering, collapses on small screens. Switch ID-comment with proper, unique ID -->
+<label for="<!-- ID -->" class="margin-toggle">⨭ …</label>
+<input type="checkbox" id="<!-- ID -->" class="margin-toggle"/>
+<span class="marginnote"><!-- Text --></span>

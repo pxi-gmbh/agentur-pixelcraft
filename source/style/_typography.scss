@@ -1,0 +1,312 @@
+/* TYPOGRAPHY & VERTICAL RHYTHM 
+ * this section is to establish the vertical rhythm and the look of elements
+ */
+
+/* reset margins */
+h1,
+h2,
+h3,
+h4,
+p,
+ul,
+ol,
+dd,
+blockquote {
+  padding: 0; /* universal reset */
+  margin: 0; /* universal reset */
+}
+/* set rhythm */
+body {
+	font-size: calc(#{$type-scale-normal}em + 1vw);
+	line-height: $line-height;
+	text-rendering: optimizeLegibility;
+	* + * {
+		margin-top: #{$line-height}em;
+	}
+}
+	@supports (font-variant-ligatures: common-ligatures) {
+		body {
+			font-feature-settings: normal;
+			font-variant-ligatures: common-ligatures;
+			font-variant-caps: all-small-caps; /* enable */
+			font-variant-caps: titling-caps; /* enable */
+		}
+	}
+	@supports (hanging-punctuation: first) {
+		body {
+			hanging-punctuation: first; /* exdent on left. only supported by Safari in 2018 */
+		}
+	}
+article,
+section {
+	position: relative;
+	margin-top: calc(#{$line-height}em * 2);
+	padding-top: #{$line-height}em;
+	padding-bottom: #{$line-height}em;
+}
+h1,
+.header-1 {
+	font-family: $font-sans;
+	font-weight: bolder;
+	font-size: #{$type-scale-h1}em;
+	font-style: normal;
+	text-transform: uppercase;
+	clear: both;
+}
+h2,
+.header-2 {
+	font-size: #{$type-scale-h2}em;
+	font-style: italic;
+	font-variant: normal;
+}
+h3,
+.header-3 {
+	font-size: #{$type-scale-h3}em;
+	letter-spacing: 0.02em;
+}
+	@supports(font-feature-settings: 'smcp') {
+		/* use @supports detection to supply proper small-caps instead of downscaled caps */
+		h3,
+		.header-3 {
+		//	font-variant: small-caps;
+		//	font-feature-settings: 'smcp';
+		}
+	}
+h4,
+.header-4 {
+	font-size: #{$type-scale-h4}em;
+	font-style: italic;
+	font-variant: normal;
+}
+* + h1,
+* + .header-1,
+* + h2,
+* + .header-2,
+* + h3,
+* + .header-3,
+* + h4,
+* + .header-4 {
+	margin-top: calc(#{$line-height}em * 2);
+}
+p,
+ul,
+ol,
+dd,
+blockquote {
+	word-wrap: break-word; /* allow words to be broken outside of normal break points */
+	hyphens: manual;
+}
+* + br, // @todo check if the more specific style reset interferes with the universal selector
+option + option,
+th + th,
+th + td,
+td + th,
+td + td,
+li + li {
+	margin-top: 0; /* reset universal top-margins for elements that should not have it by default */
+}
+
+ul {
+	list-style-type: disc;
+	list-style-position: outside;
+}
+	//ul > li:before {
+	//	content: "— ";
+	//	color: $color-medium;
+	//}
+ol {
+	list-style-type: decimal-leading-zero;
+	list-style-position: outside;
+	//counter-reset: ol-counter;
+	//> li:before {
+	//	content: counter(ol-counter);
+	//	counter-increment: ol-counter;
+	//	float: left;
+	//	width: 1em;
+	//	margin-right: 0.5em;
+	//	color: $color-medium;
+	//}
+}
+figure,
+table {
+	padding-top: 1em;
+	padding-bottom: 1em;
+	margin-left: auto;
+	margin-right: auto;
+	border-top: 1px $color-muted dotted;
+	border-bottom: 1px $color-muted dotted;
+	margin-bottom: - 2px; /* offset border height from vertical rhythm */
+}
+table {
+	font: inherit;
+	text-align: center;
+	border-collapse: collapse;
+	border-spacing: 0;
+	> thead,
+	> tbody,
+	> tfoot,
+	th,
+	tr,
+	td,
+	p {
+		text-indent: 0;
+		padding: 0;
+		border: 0;
+		border-spacing: 0;
+	}
+}
+th {
+	padding: 1.5rem;
+	border-bottom: 1px #000 solid;
+}
+td {
+	padding: 0 1.5rem;
+	padding-top: 1.5rem;
+	vertical-align: top;
+}
+
+blockquote {
+	border-left: 1px $color-muted dotted;
+	padding-left: 1.5em;
+	> p {
+		margin: 0;
+	}
+	> cite,
+	> footer > cite {
+		display: block;
+		text-align: right;
+	}
+}	
+figcaption,
+.caption {
+	font-style: normal;
+	text-align: center;
+}
+sup,
+sub {
+	/* fix line-height in all browsers */
+	vertical-align: baseline;
+	position: relative;
+	font-size: 0.8em;
+}
+sup {
+	top: -0.4em;
+}
+sub {	
+	top: 0.4em;
+	}
+hr {
+	box-sizing: content-box; /* browser fix */
+	height: 1em; /* browser fix */
+	overflow: visible; /* browser fix */
+	display: block;
+	border: none;
+	width: 100%;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+	padding-top: 1em;
+	padding-bottom: 2em;
+	clear: both;
+	&::after {
+		content: '— — —';
+		display: block;
+		color: $color-muted;
+	}
+}
+i,
+b,
+q,
+em,
+strong,
+small,
+code,
+dfn,
+kbd,
+pre,
+samp,
+cite {
+ 	font: inherit;
+	line-height: inherit;
+}
+b,
+strong {
+	font-weight: bolder;
+}
+i,
+q,
+em,
+dfn {
+	font-style: italic;
+}
+small {
+	font-size: 80%;
+}
+code {
+	font-family: $font-monospace;
+	display: inline;
+}
+pre {
+	display: block;
+	white-space: pre;
+	word-wrap: normal;
+	overflow: auto;
+	border: 0;
+}
+del {
+	text-decoration: line-through;
+}
+cite {
+	&::before {
+		content: "— ";
+	}
+}
+abbr {
+	border-bottom: none; /* browser fix */
+	text-decoration: underline; /* browser fix */
+	text-decoration: underline dotted; /* browser fix */
+	text-transform: uppercase;
+	font-variant: small-caps;
+}
+	@supports(font-feature-settings: 'smcp') {
+		/* use @supports detection to supply proper small-caps instead of downscaled caps */
+		abbr {
+			font-variant: normal;
+			font-feature-settings: 'smcp';
+		}
+	}
+q {
+	display: block;
+	font-size: #{$type-scale-h4}em;
+	text-align: center;
+	font-style: oblique;
+	clear: both;
+}
+
+/*
+ * TYPOGRAPHIC HELPER CLASSES
+ */
+.text-justified {
+	text-align: justify;
+	hyphens: auto;
+}
+.text-small {
+	font-size: 80%
+}
+.text-left {
+	text-align: left;
+}
+.text-center {
+	text-align: center;
+}
+.text-right {
+	text-align: right;
+}
+.text-body {
+	font-family: $font-serif;
+	font-weight: normal;
+	font-variant: normal;
+	text-decoration: none;
+	letter-spacing: normal;
+	color: $color-dark;
+}

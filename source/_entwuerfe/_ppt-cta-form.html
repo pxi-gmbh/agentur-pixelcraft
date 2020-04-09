@@ -1,0 +1,79 @@
+<style>
+.form-progress:not(:first-child) {
+	display: none;
+}
+input[type="radio"]:checked ~ .form-progress,
+input[type="checkbox"]:checked ~ .form-progress {
+	display: block;
+	animation: pulse 0.5s linear 1;
+}
+#cta-form:target .form-progress {
+  display: block;
+  animation: pulse 0.5s linear 1;
+}
+@keyframes pulse {
+	0% { transform: scale(1) }
+	50% { transform: scale(1.05) }
+	100% { transform: scale(1) }
+}
+label[for="name"],
+label[for="email"],
+label[for="firma"] {
+	font-variant: small-caps; 
+}
+label[for="gdpr"],
+label[for="news"] {
+	display: block;
+	float: right;
+	font-family: $font-serif;
+	font-weight: normal;
+	width: calc(100% - 4em);
+}
+
+</style>
+
+<div class="contrast-bg-white">
+	<form id="cta-form" class="text-left" style="border:none;" action="https://mail.pixelcraft.pub/sendy/subscribe" method="POST" accept-charset="utf-8">
+		<div class="text-center" style="padding:0.75em;">
+			<p style="word-wrap:normal; word-break:normal; -webkit-hyphens:none;">In unserem kostenlosen Startpaket finden Sie die ersten Folien, Übungen und Anleitungen, mit denen Sie heute schon Leistungs­sprünge machen.</p></div>
+		<input name="progress" id="progress" type="checkbox" class="hide-visually">
+		<label for="progress" class="button" style="display:block;position:relative;">Startpaket ausprobieren</label>
+		<div class="form-progress" style="margin-top:-3em;padding:1em;background-color:#eee;position:relative;z-index:1;min-height:8em;box-shadow: 0 3px 3px #999;">
+			
+			<label for="name" style="display:block;width:100%;"><span style="display:inline-block;width:4em;">Name</span><input type="text" name="name" id="name" style="width:calc(100% - 4em);" required /></label>
+			<br>
+			<label for="email" style="display:block;width:100%; padding:0;margin:0;"><span style="display:inline-block;width:4em;margin:0;border:0;">E-Mail</span><input type="text" name="email" id="email" style="width:calc(100% - 4em);margin:0;" required /></label>
+		
+			<input type="checkbox" name="gdpr" id="gdpr" required checked="checked"/> <label for="gdpr"> <i>Ich möchte das Startpaket für bessere PowerPoint-Präsentationen und Neuerungen dazu erhalten, denn ich möchte zeitsparende PowerPoint-Tricks lernen. Außerdem will ich wissen, was es mit dem Gorilla auf sich hat. Kostenlos und unverbindlich.</i></label>
+			<!--
+			<div class="clear"></div>
+			<input type="checkbox" name="+news" id="news" value="true"/> <label for="news" style="font-family:serif;font-weight:normal;"> <i>Ich möchte außerdem Wissensbeiträge über Strategie und Gestaltung von Ideentransfer abonnieren. (optional)</i></label>
+			-->
+			<div class="clear" style="padding-top:1em;"></div>
+			<br>
+			<div class="text-center"><a href="/assets/files/powerpoint-startpaket.zip" class="button">Dateien herunterladen</a></div>
+			<br>
+			<small>Sobald wir eine neue Version erstellt haben, bekommen Sie die Dateien zur Verfügung gestellt. Wir werden Sie ausschließlich über Aktualisierungen und Informationen zum Präsentationspaket informieren. Sie können jederzeit mit einem Klick oder einer Notiz an uns die Benachrichtigungen abbestellen. Ihre Kontaktdaten behandeln wir mit höchster Sorgfalt. Siehe <a href="/rechtliches.html#datenschutz">[Unsere Datenschutz&shy;erklärung]</a></small>
+		</div>
+		<div style="display:none;">
+			<label for="hp">HP</label><br/>
+			<input type="text" name="hp" id="hp"/>
+		</div>
+		<input type="hidden" name="list" value="A45H9l0gNlDR0xK3egjDYA"/>
+		<input type="hidden" name="subform" value="yes"/>
+		
+		<input type="hidden" name="+praesentation" value="true"/>
+		<input type="hidden" name="+ppt" value="true"/>
+		<input type="hidden" name="-lp-ppt-startpaket" value="true"/>
+		
+		<input type="hidden" name="team" value=""/>
+		<input type="hidden" name="status" value=""/>
+		<!--
+			<input type="text" name="Firma" id="Firma"/>
+			<input type="checkbox" name="+..." value="true"/>
+			"+..." sind Attribute für passgenaue Informationsangebote per E-Mail. mit "true" aktivieren
+			"-lp..." sind Marker für besuchte Landingpages, die wir in Mails an diese Person vermeiden 
+		-->
+		<div class="form-progress text-center"><input class="button contrast-bg-ghosted" style="width:100%;padding:0.5em;" type="submit" name="submit" id="submit" value="Neuerungen erhalten"/></div>
+	</form>
+</div>

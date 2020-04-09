@@ -1,0 +1,255 @@
+/* LAYOUT
+ * - layout utility classes (float right/left)
+ * -
+ */
+
+.grid { /* single column grid */
+	position: relative;
+	max-width: 42em;
+	width: 95%;
+	padding-left: 2.5%;
+	padding-right: 2.5%;
+	margin-left: auto;
+	margin-right: auto;
+}
+	@media screen and (min-width: $break-wide) {
+		/* give more room to breathe on wider screens */
+		.grid {
+		 	width: 90%;
+		 	padding-left: 5%;
+		 	padding-right: 5%;
+		}
+	}
+	// option for a two-column-layout with content in the right margin
+	@media screen and (min-width: $break-wide) {
+		/* shift main column, add margin gutter to the right on wide screens */
+		.grid-margin {
+			width: 80vw;
+		 	margin-left: #{$line-height}em !important;
+		 	margin-right: #{$line-height}em !important;
+		 	padding-left: #{$line-height}em;
+		 	padding-right: calc(20vw - #{$line-height}em);
+		}
+	}
+	// option for a two-column-layout with content spread across full width
+	@media screen and (min-width: $break-wide) {
+		/* shift main column, add margin gutter to the right on wide screens */
+		.grid-spread {
+			width: 80vw;
+			max-width: none;
+		 	margin-left: #{$line-height}em !important;
+		 	margin-right: #{$line-height}em !important;
+		 	padding-left: #{$line-height}em;
+		 	padding-right: #{$line-height}em;
+		}
+	}
+.center-horizontal {
+	 position: absolute;
+	 left: 50%;
+	 transform: translateX(-50%);
+}
+.full-width { /* to stretch elements (like images) inside of centered columns beyond their parent container to fullscreen window width */
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+}
+.clear-float { /* clearfix for floating elements */
+	clear: both;
+}
+.current {
+	border-bottom: 1px solid $color-contrast; /* for navigation links */
+}
+.drop-shadow {
+	box-shadow: $drop-shadow; // adds standard drop-shadow to element
+}
+.contrast-bg-light {
+	background-color: $color-light;
+}
+.contrast-bg-dark {
+	background-color: $color-dark;
+	color: white;
+}
+.contrast-bg-medium {
+	background-color: $color-medium;
+	color: white;
+}
+.contrast-bg-white {
+	background-color: $color-ghosted;
+}
+.contrast-bg-black {
+	background-color: $color-lighter;
+}
+.contrast-bg-gradient {
+	background-image: $color-gradient;
+}
+.spaced:before { /* adds a flourish to seperate elements */
+	display: block;
+	content: "—";
+	text-align: center;
+}
+
+/* tables from divs with flexbox */
+// add style="order:N" to table cell elements inline
+.flex-table {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 0;
+  padding: 0;
+  hyphens: auto;
+}
+.flex-table-cell {
+  box-sizing: border-box;
+  width: 100%;  // Default to full width
+  margin: 0;
+  margin-top: #{$line-height}em;
+  padding: 0.8em calc(#{$line-height}em * 0.5);
+  overflow: hidden; // or flex might break
+  border: none;
+  > h1, 
+  > h2, 
+  > h3, 
+  > h4, 
+  > h5, 
+  > h6 { 
+  	margin: 0; 
+  	}
+  > img { 
+  	margin: auto; 
+  	}
+}
+/* table column sizing */
+.flex-table-twocols {
+	> .flex-table-cell  { 
+		width: calc(50% - #{$line-height}em);
+	}	
+}
+.flex-table-threecols {
+	> .flex-table-cell {
+		width: calc(33.33% - 1em);
+	}	
+}
+.flex-table-fourcols { 
+	> .flex-table-cell {
+		width: calc(25% - #{$line-height}em);
+	}
+}
+.flex-table-fivecols { 
+	> .flex-table-cell {
+		width: calc(20% - #{$line-height}em);
+	}
+}
+/* collapse table on small screens */
+@media all and (max-width: $break-narrow) {
+	.flex-table  {
+		display: block;
+		> .flex-table-cell { 
+			width: 100%;
+		}
+	}
+}
+/* for links as cells limit link underline and color to last child elements */
+a.flex-table-cell {
+  display: block;
+  color: $color-dark;
+  &:hover,
+  &:active,
+  &:focus {
+  	transform: translateY(-2px);
+  	text-decoration: none;
+  }
+  *:last-child {
+  	  color: $color-contrast;
+	}
+  *:last-child:hover {
+	  text-decoration: underline;
+  }
+}
+
+/* Sidenotes, margin notes */
+// sidenote use (gets running counter in text & note)
+//<label for="ID" class="margin-toggle sidenote-number"></label>
+//<input type="checkbox" id="ID" class="margin-toggle"/>
+//<span class="sidenote">
+// marginnote use (gets no counter, is activated via label when collapsed)
+//<label for="ID" class="margin-toggle">⨭ …</label>
+//<input type="checkbox" id="ID" class="margin-toggle"/>
+//<span class="marginnote">
+.sidenote, 
+.marginnote,
+.marginbox {
+	float: right;
+	clear: right;
+	margin-right: calc(-5 * #{$line-height}em - 20vw);
+	width: calc(3 * #{$line-height}em + 20vw);
+	margin-top: 0.2em;
+	margin-bottom: 0;
+	font-size: 0.8em;
+	line-height: calc(#{$line-height} * 1.25);
+	vertical-align: baseline;
+	position: relative; 
+}
+main {
+  counter-reset: sidenote-counter;
+}
+.sidenote-number { 
+	counter-increment: sidenote-counter; 
+}
+.sidenote-number:after, 
+.sidenote:before { 
+	font-family: inherit;
+	position: relative;
+	vertical-align: baseline;
+}
+.sidenote-number:after { 
+	content: "[" counter(sidenote-counter) "]";
+	font-size: 0.8em;
+	top: -0.4em;
+	left: -0.1em;
+	color: $color-contrast;
+}
+.sidenote:before { 
+	content: "[" counter(sidenote-counter) "]";
+	top: -0.2em;
+	left: -0.1em;
+	color: $color-contrast;
+}
+input.margin-toggle {
+	display: none;
+}
+label.sidenote-number { 
+	display: inline;
+}
+label.margin-toggle:not(.sidenote-number) { 
+	display: none;
+	color: $color-contrast;
+}
+/* collapse sidenotes on small screens */
+@media all and (max-width: $break-wide) {
+	label.margin-toggle:not(.sidenote-number) { 
+		display: inline;
+	}
+	.sidenote,
+	.marginnote { 
+		display: none; 
+	}
+	.margin-toggle:checked + .sidenote,
+	.margin-toggle:checked + .marginnote,
+	.marginbox { 
+		display: block;
+		float: left;
+		left: #{$line-height}em;
+		clear: both;
+		width: 95%;
+		margin: #{$line-height}em;
+		vertical-align: baseline;
+		position: relative;
+	}
+	label { 
+		cursor: pointer;
+	}
+}

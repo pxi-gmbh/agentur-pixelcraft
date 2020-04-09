@@ -15,6 +15,8 @@ In **source** stecken die unfertigen Dateien, die erst noch verarbeitet werden m
 **.kit** Dateien sind **html** Dateien, die besondere Kommentare zulassen. So lässt sich beispielsweise `<!-- @include "_includes/_itf-header.html" -->` in eine **.kit** Datei schreiben. Ist eine **.html** Ausgabedatei für *compile* festgelegt, sorgt dieser Kommentar dafür, dass `_itf-header.html` in dem verarbeiteten Dokument an die entsprechende Stelle eingefügt ist.
 
 ### Dateibenennung
-Dateien mit `_`vor dem Dateinamen werden von Codekit standardmäßig ignoriert. Das ist gut, wenn diese Dateien zwar zum Beispiel über eine **.kit** Datei geladen werden, aber nicht nicht selbst verarbeitet werden sollen.
+Dateien mit `_` vor dem Dateinamen werden von Codekit standardmäßig ignoriert. Das ist gut, wenn diese Dateien zwar zum Beispiel über eine **.kit** Datei geladen werden, aber nicht nicht selbst verarbeitet werden sollen.
 
-**.md** Dateien müssen aber verarbeitet werden, bevor sie in eine Datei geladen werden können, sonst erscheint der Text als Text ohne Auszeichnungen. Damit Auszeichnungen als solche übernommen werden, muss Codekit erst die **.md** Datei in eine **.html** Datei umwandeln. Über die Einstellungen bei Codekit lässt sich der Umgang mit **.md** Dateien generell handhaben. Es muss also nicht bei jeder **.md** Datei auf *compile* geklickt werden. Fängt die Datei mit `_` an, wird sie aber trotzdem ignoriert und müsste mit Klick auf *compile* einzeln umgewandelt werden.
+**.md** Dateien müssen aber verarbeitet werden, bevor sie in eine Datei geladen werden können, sonst erscheint der Text als Text ohne Auszeichnungen. Damit Auszeichnungen als solche übernommen werden, muss Codekit erst die **.md** Datei in eine **.html** Datei umwandeln. Über die Einstellungen bei Codekit lässt sich der Umgang mit **.md** Dateien generell handhaben. Fängt die Datei mit `_` an, wird sie aber trotzdem ignoriert und das Ignorieren müsste erst manuell ausgestellt werden, bevor mit Klick auf *compile* umgewandelt wird.
+
+Codekit hat Probleme mit dem Verarbeiten von Dateien, die spezielle Zeichen wie `Leerzeiche`n oder `--` enthalten.
